@@ -437,7 +437,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <button class="announcement-delete-button" data-id="${announcement.id}" aria-label="Delete announcement">🗑️</button>
               </div>
             </div>
-            <p class="announcement-item-message">${announcement.message}</p>
+            <p class="announcement-item-message" data-id="${announcement.id}"></p>
             <p class="announcement-item-dates">
               ${announcement.start_date ? `Starts ${announcement.start_date} &middot; ` : ""}Expires ${announcement.expiration_date}
             </p>
@@ -446,6 +446,14 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .join("");
 
+    announcements.forEach((announcement) => {
+      const messageEl = announcementsListEl.querySelector(
+        `.announcement-item-message[data-id="${announcement.id}"]`
+      );
+      if (messageEl) {
+        messageEl.textContent = announcement.message;
+      }
+    });
     announcementsListEl.querySelectorAll(".announcement-edit-button").forEach((button) => {
       button.addEventListener("click", () => {
         const announcement = announcements.find((a) => a.id === button.dataset.id);
