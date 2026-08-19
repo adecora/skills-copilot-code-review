@@ -666,9 +666,228 @@ footer {
 }
 
 .announcement-banner {
-  background-color: var(--success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--success), #1b5e20);
   color: white;
   text-align: center;
-  padding: 15px;
-  font-weight: bold;
+  padding: 12px 20px;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  flex-wrap: wrap;
+}
+
+.announcement-icon {
+  font-size: 1.1rem;
+}
+
+.announcement-message {
+  flex: 1 1 auto;
+}
+
+.announcement-dots {
+  display: flex;
+  gap: 6px;
+  flex-basis: 100%;
+  justify-content: center;
+}
+
+.announcement-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.announcement-dot.active,
+.announcement-dot:hover {
+  background-color: white;
+}
+
+/* Generic form group styling shared across modals */
+.form-group {
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 2px rgba(83, 75, 174, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Inline status/feedback messages */
+.message {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.message.success {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.message.error {
+  background-color: var(--error-light);
+  color: var(--error);
+}
+
+.message.info {
+  background-color: var(--info-light);
+  color: var(--info);
+}
+
+.cancel-btn {
+  background-color: var(--border);
+  color: var(--text-primary);
+}
+
+.cancel-btn:hover {
+  background-color: var(--border-focus);
+}
+
+.confirm-btn {
+  background-color: var(--error);
+}
+
+/* Announcements management dialog */
+.announcements-modal-content {
+  max-width: 480px;
+  width: 92%;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.announcement-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.announcements-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 16px 0 12px;
+}
+
+.announcements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.announcements-empty {
+  text-align: center;
+  padding: 12px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.announcement-item {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  background-color: var(--background);
+}
+
+.announcement-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.announcement-status {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.status-active {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.status-upcoming {
+  background-color: var(--info-light);
+  color: var(--info);
+}
+
+.status-expired {
+  background-color: var(--error-light);
+  color: var(--error);
+}
+
+.announcement-item-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.announcement-item-actions button {
+  background: none;
+  padding: 2px 6px;
+  font-size: 0.9rem;
+}
+
+.announcement-item-actions button:hover {
+  background-color: var(--border);
+}
+
+.announcement-item-message {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.announcement-item-dates {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
 }
